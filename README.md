@@ -26,7 +26,10 @@ Deployment requires an [Okteto](https://cloud.okteto.com.com) account.
 
 ### From Command Line
 
-`okteto push`
+```
+export REACT_APP_DAILY_SUBDOMAIN=[YOUR_DAILY_SUBDOMAIN]
+okteto push
+```
 
 ## Environment Variables
 
