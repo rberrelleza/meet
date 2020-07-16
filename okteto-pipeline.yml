@@ -1,5 +1,0 @@
-deploy:
-- set
-- okteto push --deploy
-devs:
-- okteto.yml
