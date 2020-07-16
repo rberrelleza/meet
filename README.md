@@ -6,10 +6,9 @@
 
 ### Setup (Recommended steps using Okteto)
 1. Create an account on [Daily.co](https://daily.co) and pick a subdomain name.
-1. Deploy the app (recommended: use the Okteto button above, and create an account there.) 
 1. Create rooms in the [Daily.co Dashboard](https://dashboard.daily.co), each beginning with the prefix `meet-`. For example, if you want to make rooms for Avidan, Chrissy, Kane, and Lee, you would create rooms called `meet-avidan`, `meet-chrissy`, `meet-kane`, and `meet-lee`. Make sure the rooms are public.
 1. Go to [Okteto Cloud](https://cloud.okteto.com) > Secrets and add `REACT_APP_DAILY_SUBDOMAIN=[YOUR_DAILY_SUBDOMAIN]`.
-1. 
+1. Deploy the app (recommended: use the Okteto button above, and create an account there).
 1. Visit `https://meet-[YOUR_GITHUB_ID].cloud.okteto.com/[YOUR_ROOM_NAME]`
 
 ### Usage
