@@ -13,3 +13,5 @@ forward:
 - 3000:3000
 persistentVolume:
   enabled: true
+environment:
+  - PORT=8080
