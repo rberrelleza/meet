@@ -22,7 +22,7 @@ Deployment requires an [Okteto](https://cloud.okteto.com.com) account.
 
 ### Develop on Okteto Button
 
-![Develop on Okteto](https://okteto.com/develop-okteto.svg)
+[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy)
 
 ### From Command Line
 
