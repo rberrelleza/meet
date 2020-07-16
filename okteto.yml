@@ -1,0 +1,15 @@
+name: meet
+image: okteto/node:10
+command:
+- bash
+workdir: /okteto
+build:
+  args:
+    - REACT_APP_COMPANY_NAME
+    - REACT_APP_DAILY_SUBDOMAIN
+    - REACT_APP_COMPANY_URL
+forward:
+- 9229:9229
+- 3000:3000
+persistentVolume:
+  enabled: true
