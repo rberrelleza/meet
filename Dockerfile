@@ -1,6 +1,8 @@
 FROM node:12 as builder
 
 WORKDIR /usr/src/app
+RUN npm install -g serve
+
 COPY package*.json ./
 RUN npm ci --only=production
 COPY . .
@@ -14,5 +16,4 @@ ENV REACT_APP_COMPANY_URL=$REACT_APP_COMPANY_URL
 ENV PORT=8080
 
 RUN npm run build
-RUN npm install serve
 CMD serve -s build
