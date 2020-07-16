@@ -1,36 +1,39 @@
 [Root Ventures](root.vc) has a custom video conferencing app built on the [Daily](daily.co) API. You can use this on your own if you like. Fork the repo and modify to your heart's content.
 
+[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy)
+
 ## Getting Started
 
-### Setup (Recommended steps using Netlify)
+### Setup (Recommended steps using Okteto)
 1. Create an account on [Daily.co](https://daily.co) and pick a subdomain name.
-1. Deploy the app (recommended: use the Netlify button above, and create an account there.) 
 1. Create rooms in the [Daily.co Dashboard](https://dashboard.daily.co), each beginning with the prefix `meet-`. For example, if you want to make rooms for Avidan, Chrissy, Kane, and Lee, you would create rooms called `meet-avidan`, `meet-chrissy`, `meet-kane`, and `meet-lee`. Make sure the rooms are public.
-1. Go to your [Netlify Dashboard](https://app.netlify.com/sites) > Settings > Build & Deploy > Environment Variables and add `REACT_APP_DAILY_SUBDOMAIN=[YOUR_DAILY_SUBDOMAIN]`.
-1. Visit `https://[YOUR_NETLIFY_APP_NAME].netlify.com/[YOUR_ROOM_NAME]`
+1. Go to [Okteto Cloud](https://cloud.okteto.com) > Secrets and add `REACT_APP_DAILY_SUBDOMAIN=[YOUR_DAILY_SUBDOMAIN]`.
+1. Deploy the app (recommended: use the Okteto button above, and create an account there).
+1. Visit `https://meet-[YOUR_GITHUB_ID].cloud.okteto.com/[YOUR_ROOM_NAME]`
 
 ### Usage
-You must create rooms manually in the [Daily.co Dashboard](https://dashboard.daily.co) before going to the above URL. All room names must begin with `meet-` such as `meet-lee`. This room would be accessible at `https://[YOUR_NETLIFY_APP_NAME].netlify.com/lee`. You can share this URL with anyone.
+You must create rooms manually in the [Daily.co Dashboard](https://dashboard.daily.co) before going to the above URL. All room names must begin with `meet-` such as `meet-lee`. This room would be accessible at `https://meet-[YOUR_GITHUB_ID].cloud.okteto.com/lee`. You can share this URL with anyone.
 
-Each of your meeting rooms are located at their own path name (minus the `meet-` at the beginning): `https://[YOUR_NETLIFY_APP_NAME].netlify.com/[YOUR_ROOM_NAME]`. The `meet-` prefix functions as a namespace in case you want to use your new Daily.co account for other purposes.
+Each of your meeting rooms are located at their own path name (minus the `meet-` at the beginning): `https://meet-[YOUR_GITHUB_ID].cloud.okteto.com/[YOUR_ROOM_NAME]`. The `meet-` prefix functions as a namespace in case you want to use your new Daily.co account for other purposes.
 
 ## Deployment Options
 
-Deployment requires a [Netlify](https://www.netlify.com) account.
+Deployment requires an [Okteto](https://cloud.okteto.com.com) account.
 
-### Deploy with Netlify Button
+### Develop on Okteto Button
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/rootvc/meet)
+[![Develop on Okteto](https://okteto.com/develop-okteto.svg)](https://cloud.okteto.com/deploy)
 
 ### From Command Line
 
-`netlify deploy`
-
-Our app deploys with continuous deployment hooks, which you can configure for your app here: (https://docs.netlify.com/site-deploys/create-deploys/#drag-and-drop).
+```
+export REACT_APP_DAILY_SUBDOMAIN=[YOUR_DAILY_SUBDOMAIN]
+okteto push
+```
 
 ## Environment Variables
 
-You can configure the following environment variables in the [Netlify UI](https://app.netlify.com/sites) under Settings > Build & Deploy > Environment Variables.
+You can configure the following environment variables in the [Okteto Cloud UI](https://cloud.okteto.com) under Secrets
 
 `REACT_APP_DAILY_SUBDOMAIN` = Subdomain on [daily.co](daily.co) for your account. (e.g. `rootvc`)
 `REACT_APP_ASSET_PATH` = Path to your custom assets. For our own implementation, we use S3 and put the URL to the bucket here.
@@ -43,11 +46,17 @@ To change the appearance of a room called "wine":
 `REACT_APP_ROOM_WINE_BACKGROUND` = a filename for a custom loading spinner background that shows before the iframe loads
 `REACT_APP_ROOM_WINE_HEADER` = a filename for a custom header image in the S3 bucket
 
-Learn about environment variables on Netlify: https://docs.netlify.com/configure-builds/environment-variables/#declare-variables
+Learn about Okteto secrets: https://okteto.com/docs/cloud/secrets/index.html
 
-## Command Line Scripts
+## Development
 
-In the project directory, you can run:
+To deploy your development environment, you can run: 
+
+`okteto up`
+
+This will deploy a remote development environment with all the tools you need to build `meet`.
+
+From the remote terminal, you can run:
 
 ### `npm install`
 
@@ -58,7 +67,7 @@ Meet uses [scarf-js](https://github.com/scarf-sh/scarf.js) to collect anonymized
 ### `npm start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open https://meet-[YOUR_GITHUB_ID].cloud.okteto.com to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
@@ -98,7 +107,7 @@ To use your own brand marks, you can replace these files in your own fork or clo
 ## References
 
 Daily.co API Docs: https://docs.daily.co/reference
-Netlify Docs: https://docs.netlify.com/
+Okteto Docs: https://okteto.com/docs
 
 This app was created with create-react-app. You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started). (It has not been ejected. If you don't know what that means, either read the docs or don't worry about it.)
 
