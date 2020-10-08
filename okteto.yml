@@ -1,6 +1,7 @@
 name: meet
 command:
 - bash
+image: okteto.dev/meet
 workdir: /usr/src/app
 push:
   args:
