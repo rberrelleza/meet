@@ -1,4 +1,4 @@
-FROM node:12 as builder
+FROM node:12
 
 WORKDIR /usr/src/app
 RUN npm install -g serve
